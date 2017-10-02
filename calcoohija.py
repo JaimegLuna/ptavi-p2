@@ -4,32 +4,40 @@
 import sys
 import calcoo 
 
+class CalculadoraHija(calcoo.Calculadora):
 
-class CalculadoraHija (calcoo.Calculadora):
-    def multi(self, op1, op2):
-        return op1 * op2
+	def mult(self, op1, op2):
+		return op1 * op2
 
-    def divi(self, op1, op2):
-        return op1 / op2
+	def div(self, op1, op2):
+		return op1 / op2
+
 if __name__ == "__main__":
-    try:
-        operando1 = int(sys.argv[1])
-        operando2 = int(sys.argv[3])
-    except ValueError:
-        sys.exit("Error: Non numerical parameters")
-        calculadorahija = CalculadoraHija()
+	
+	calculadorahija = CalculadoraHija()
 
-    if sys.argv[2] == "multiplicacion":
-        result = calculadorahija.multi(operando1, operando2)
-    elif sys.argv[2] == "division":
-            if operando2 == 0:
-                result = "Error: Division by 0 is not allowed"
-            else:
-                result = calculadorahija.divi(operando1, operando2)
-    elif sys.argv[2] == "suma":
-        result = calculadorahija.suma(operando1, operando2)
-    elif sys.argv[2] == "resta":
-        result = calculadorahija.resta(operando1, operando2)
-    else:
-        sys.exit('solo se puede suma, resta, multiplicacion o division')
-    print(result)
+	try:
+		operando1 = int(sys.argv[1])
+		operando2 = int(sys.argv[3])
+	except ValueError:
+		sys.exit("Error: Non numerical parameters")
+
+	if sys.argv[2] == "multiplicación":
+		resultado = calculadorahija.mult(operando1, operando2)
+	elif sys.argv[2] == "división":
+		if operando2 == 0:
+			resultado = "Error: No se puede dividir entre 0"
+		else:
+			resultado = calculadorahija.div(operando1, operando2)
+	elif sys.argv[2] == "suma":
+		resultado = calculadorahija.suma(operando1, operando2)
+	elif sys.argv[2] == "rest":
+		resultado = calculadorahija.rest(operando1, operando2)
+	else:
+		sys.exit('Sólo se puede multiplicación, división, suma o resta')
+
+	print(resultado)
+	
+
+		
+	
