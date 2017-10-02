@@ -3,28 +3,28 @@
 
 import sys
 
+
 class Calculadora():
-	def suma(self, op1, op2):
-		return op1 + op2
+    def suma(self, op1, op2):
+        return op1 + op2
 
-	def rest(self, op1, op2):
-		return op1 - op2
+    def rest(self, op1, op2):
+        return op1 - op2
 
-if __name__=="__main__":
+if __name__ == "__main__":
 
-	calculadora = Calculadora()
+    calculadora = Calculadora()
 
-	try:
+    try:
+        operando1 = int(sys.argv[1])
+        operando2 = int(sys.argv[3])
+    except ValueError:
+        sys.exit("Non numerical parameters")
 
-		operando1 = int(sys.argv[1])
-		operando2 = int(sys.argv[3])
-	except ValueError: 
-		sys.exit("Non numerical parameters")
-	
-	if sys.argv[2] == "suma": 
-		resultado = calculadora.suma(operando1, operando2)
-	elif sys.argv[2] == "resta":
-		resultado = calculadora.rest(operando1, operando2)
-	else:
-		sys.exit("Sólo puede ser suma o resta")
-	print(resultado)
+    if sys.argv[2] == "suma":
+        resultado = calculadora.suma(operando1, operando2)
+    elif sys.argv[2] == "resta":
+        resultado = calculadora.rest(operando1, operando2)
+    else:
+        sys.exit("Sólo puede ser suma o resta")
+    print(resultado)
